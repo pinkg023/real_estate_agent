@@ -5,10 +5,11 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
 gem 'devise'
 gem 'ffaker'
 gem 'bootstrap-sass', '~> 3.3.7'
+#gem 'font-awesome-rails'
+gem 'font-awesome-sass'
 gem 'jquery-rails'
 gem 'kaminari'
 gem 'carrierwave', '~> 1.2', '>= 1.2.3'
