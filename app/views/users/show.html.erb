@@ -1,0 +1,19 @@
+<div class = "container">
+  <div class="col-md-4">
+      <br>
+      <strong>姓名：</strong><%= @user.name %>
+      <br>
+      <strong>Email：</strong> <%= @user.email %>
+      <% if current_user.role == "admin" %> 
+          <br>
+          <strong>使用者權限：</strong> <%= @user.role %>
+      <% end %>
+      <br>
+      <strong>電話：</strong> <%= @user.tel %>     
+      <br><br>
+
+  </div>
+  
+  <div class="p-3 mb-2 bg-info text-white"><%= flash[:notice] %></div>
+  <div class="p-3 mb-2 bg-danger text-white"><%= flash[:alert] %></div>
+</div>
