@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
-  before_action :set_user, :only => [:show, :edit, :coupon ]
-  before_action :check_userself, :only => [:show, :edit]
+  before_action :set_user, :check_userself, :only => [:show, :edit, :coupon]
+
+  def show
+  end
 
   def update
     set_user
@@ -31,6 +33,6 @@ class UsersController < ApplicationController
       if current_user!=@user
       redirect_to root_path
       flash[:alert] = "權限不足！"
-      end
+    end
   end
 end

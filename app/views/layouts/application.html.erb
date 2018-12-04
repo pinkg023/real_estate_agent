@@ -16,7 +16,7 @@
       <header id="header">
         <nav class="left">
           <a href="#menu"><span>Menu</span></a>
-          <strong>Hi, <%= current_user.email %></strong>
+          <% if current_user %><strong>Hi, <%= current_user.email %></strong><% end %>
         </nav>
         <a href="/pages/index.html" class="logo">福代書</a>
         <nav class="right">
@@ -26,7 +26,7 @@
               <% end %>
               <%= link_to user_path(current_user), class:"button alt" do %>會員中心<% end %>
               <%= link_to edit_user_path(current_user), class:"button alt" do %>修改個人資料<% end %>
-              <%= link_to destroy_user_session_path, class:"button alt" do %>登出<% end %>
+              <%= link_to destroy_user_session_path, :method => :delete, class:"button alt" do %>登出<% end %>
             <% else %>
               <%= link_to new_user_registration_path, class:"button alt" do %>註冊<% end %>
               <%= link_to new_user_session_path, class:"button alt" do %>登入<% end %>
