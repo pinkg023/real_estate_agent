@@ -20,9 +20,10 @@ namespace :dev do
   end
 
   task fake_post: :environment do
-      3.times do |i|
+    Post.destroy_all
+      5.times do |i|
         Post.create!(title: FFaker::Lorem.characters(character_count = 15),
-          description: FFaker::Lorem.characters(character_count = 50),
+          description: FFaker::Lorem::sentence(30),
         )
     end
     puts "have created fake posts"

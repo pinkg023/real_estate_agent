@@ -51,22 +51,20 @@
 				</div>
 			</section>
 		<!-- Three -->
-			<section id="three" class="container well">
-				<h2 class="text-center">最新公告</h2>			
-									
+			<section id="three" class="container-fluid">
+				<h2 class="text-center">最新公告</h2>								
 						<% @posts.each do |post| %>
-							<div class="panel panel-default">
-        				<div class="panel-body">              
-          				<div>
-            				<div class="col-sm-7 col-md-7">
+							<div class="col-sm-3 col-md-3">
+								<div class="panel panel-default">
+        					<div class="panel-body">   
+        						<div class="content">           
 											<h3 class="text-primary"><%= post.title %></h3>
-											<p><%= post.description %></p>
+											<p class="card-text"><%= post.description.truncate(100) %></p>
 										</div>
 									</div>
 								</div>
 							</div>
 			      <% end %>
-				
 			</section>
 
 		<!-- Two -->
