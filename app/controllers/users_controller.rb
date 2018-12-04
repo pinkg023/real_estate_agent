@@ -1,7 +1,22 @@
 class UsersController < ApplicationController
-  before_action :set_user, :only => [:show, :edit, :update, :followings, :followers, :likes ]
-  before_action :check_userself, :only => [:show, :edit, :update]
+  before_action :set_user, :only => [:show, :edit, :coupon ]
+  before_action :check_userself, :only => [:show, :edit]
 
+  def update
+    set_user
+    if @user == current_user
+      if @user.update(user_params)
+        flash[:notice] = "個人資料已更新"
+        redirect_to user_path(@user)      
+      else
+        render edit_user_path(@user)
+        flash[:alert] = @user.errors.full_messages.to_sentence
+      end
+    else 
+      flash[:alert] = "權限不足！"
+      redirect_to root_path
+    end
+  end
 
   private
     def set_user
@@ -14,7 +29,7 @@ class UsersController < ApplicationController
 
     def check_userself
       if current_user!=@user
-      redirect_to user_path
+      redirect_to root_path
       flash[:alert] = "權限不足！"
       end
   end

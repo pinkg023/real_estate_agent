@@ -31,8 +31,6 @@
               <%= link_to new_user_registration_path, class:"button alt" do %>註冊<% end %>
               <%= link_to new_user_session_path, class:"button alt" do %>登入<% end %>
             <% end %>
-            <p class="notice"><%= notice %></p>
-            <p class="alert"><%= alert %></p>
         </nav>
       </header>
 
@@ -48,7 +46,18 @@
         </ul>
       </nav>
 
-
     <%= yield %>
+    <div class="container">
+      <% if flash[:notice] %>
+                <div class="alert alert-success alert-dismissible text-center" role="alert">
+                  <%= notice %>
+                </div>
+      <% end %>
+      <% if flash[:alert] %>
+                <div class="alert alert-danger alert-dismissible text-center" role="alert">
+                  <%= alert %>
+                </div>
+      <% end  %> 
+    </div>
   </body>
 </html>
