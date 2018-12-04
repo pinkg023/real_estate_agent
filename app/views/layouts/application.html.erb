@@ -19,7 +19,26 @@
         </nav>
         <a href="index.html" class="logo">福代書</a>
         <nav class="right">
-          <a href="#" class="button alt">登入</a>
+          <ul class="pull-right text-right nav navbar-nav">
+            <% if current_user %>
+              <% if current_user&.admin? %>
+                <li><%= link_to 'Admin Panel', admin_tweets_path %></li>                
+              <% end %>
+              <li><%= link_to 'Home', user_path(current_user) %></li>
+              <li><p class="navbar-text">Hi, <%= current_user.email %></
+              <%= link_to destroy_user_session_path, class:"button alt" do %>登出<% end %>
+              <%= link_to edit_user_path(current_user), class:"button alt" do %>修改個人資料<% end %>
+              <%= link_to edit_user_registration_path, class:"button alt" do %>修改密碼<% end %>
+            <% else %>
+              <%= link_to new_user_registration_path, class:"button alt" do %>註冊<% end %>
+              <%= link_to new_user_session_path, class:"button alt" do %>登入<% end %>
+              
+
+            <% end %>
+            <p class="notice"><%= notice %></p>
+            <p class="alert"><%= alert %></p>
+          </ul>
+
         </nav>
       </header>
 
