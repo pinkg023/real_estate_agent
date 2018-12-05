@@ -4,7 +4,7 @@ class Admin::PostsController < ApplicationController
   before_action :set_post, :only => [:show, :edit, :update, :destroy]
 
   def index
-    @posts = Post.order(created_at: :desc).page(params[:page]).per(50)
+    @posts = Post.order(created_at: :desc).page(params[:page]).per(20)
   end
 
   def new
@@ -29,7 +29,7 @@ class Admin::PostsController < ApplicationController
     else
       flash[:alert] = "公告已刪除！" 
     end
-      redirect_to root_path
+      redirect_to admin_root_path
   end
 
   def update

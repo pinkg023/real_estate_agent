@@ -21,7 +21,7 @@ namespace :dev do
 
   task fake_post: :environment do
     Post.destroy_all
-      5.times do |i|
+      100.times do |i|
         Post.create!(title: FFaker::Lorem.characters(character_count = 15),
           description: FFaker::Lorem::sentence(30),
         )
