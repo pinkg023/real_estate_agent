@@ -1,13 +1,11 @@
      <table> 
       <% @posts.each do |post| %>        
             <tr>
-              <td><%= link_to post.title.truncate(100), post_path(post) %>
-              <td><%= post.title %>
-                  <%= link_to "Delete", post_path(post), method: :delete, class: "btn btn-info pull-right" %>
+              <td><%= link_to post.title.truncate(20), admin_post_path(post) %>
+              <td><%= post.description.truncate(100) %>
+                  <%= link_to "Delete", admin_post_path(post), method: :delete, class: "btn btn-info pull-right" %>
               </td>
               </td>
-              <td><%= post.title %></td>
-              <td><%= post.title %></td>
             </tr>
       <% end %>
     </table>
