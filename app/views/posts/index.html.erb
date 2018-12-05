@@ -1,13 +1,13 @@
 <div class="container"> 
   <br>  
   <% @posts.each do |post| %>   
-    <div class="col-sm-6 col-md-4">
+    <div class="col-sm-6 col-md-4 board-card">
         <div class="panel panel-default">
           <div class="panel-body">   
             <div class="content">           
               <strong><%= post.created_at.strftime("%d %b. %Y %H:%M") %></strong>
               <h3 class="text-primary"><%= link_to post.title, post_path(post) %></h3>              
-              <p class="card-text"><%= post.description.truncate(100) %></p>
+              <p class="card-text"><%= post.description.truncate(150) %></p>
             </div>
           </div>
         </div>
