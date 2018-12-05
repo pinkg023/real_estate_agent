@@ -1,0 +1,13 @@
+      <% @posts.each do |post| %>        
+            <tr>
+              <td><%= link_to post.title.truncate(100), post_path(post) %>
+              <%= link_to "Delete", post_path(post), method: :delete, class: "btn btn-info pull-right" %>
+              <% end %>
+              </td>
+              <td><%= post.title %></td>
+              <td><%= post.title %></td>
+            </tr>
+      <% end %>
+    </table>
+    <%= paginate @posts %>
+  </div>

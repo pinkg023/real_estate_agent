@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   #before_action :configure_permitted_parameters, if: :devise_controller?
 
   def authenticate_admin
-    unless current_user.admin?
+    unless current_user.role != "admin"
       flash[:alert] = "權限不足!"
       redirect_to root_path
     end

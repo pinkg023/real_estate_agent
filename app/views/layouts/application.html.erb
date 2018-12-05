@@ -22,7 +22,7 @@
         <nav class="right">
             <% if current_user %>
               <% if current_user.role == "admin" %> 
-                <%= link_to admin_path, class:"button alt" do %>管理後台<% end %>            
+                <%= link_to admin_root_path, class:"button alt" do %>管理後台<% end %>            
               <% end %>
               <%= link_to user_path(current_user), class:"button alt" do %>會員中心<% end %>
               <%= link_to edit_user_path(current_user), class:"button alt" do %>修改個人資料<% end %>
@@ -45,20 +45,22 @@
           <li><a href="#" class="button fit">Login</a></li>
         </ul>
       </nav>
-
-    <%= yield %>
     <div class="container">
       <% if flash[:notice] %>
-                <div class="alert alert-success alert-dismissible text-center" role="alert">
-                  <%= notice %>
-                </div>
+          <br>
+          <div class="alert alert-success alert-dismissible text-center" role="alert">
+            <%= notice %>
+          </div>
       <% end %>
       <% if flash[:alert] %>
-                <div class="alert alert-danger alert-dismissible text-center" role="alert">
-                  <%= alert %>
-                </div>
+          <br>
+          <div class="alert alert-danger alert-dismissible text-center" role="alert">
+            <%= alert %>
+          </div>
       <% end  %> 
     </div>
+    <%= yield %>
+
     <!-- Footer -->
       <footer id="footer">
         <div class="inner">
