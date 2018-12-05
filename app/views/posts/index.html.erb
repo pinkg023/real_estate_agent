@@ -1,8 +1,8 @@
-<div class="container"> 
+<div class="container-fluid"> 
   <br>  
   <% @posts.each do |post| %>   
-    <div class="col-sm-6 col-md-4 board-card">
-        <div class="panel panel-default">
+    <div class="col-md-6 col-lg-4">
+        <div class="panel panel-default board-card">
           <div class="panel-body">   
             <div class="content">           
               <strong><%= post.created_at.strftime("%d %b. %Y %H:%M") %></strong>
