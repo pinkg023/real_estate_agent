@@ -4,21 +4,18 @@ class Admin::PostsController < ApplicationController
   before_action :set_post, :only => [:show, :edit, :update, :destroy]
 
   def index
-    @posts = Post.order(created_at: :desc).page(params[:page]).per(20)
-  end
-
-  def new
     @post = Post.new
+    @posts = Post.order(created_at: :desc).page(params[:page]).per(20)
   end
 
   def create
     @post = Post.new(post_params)
     if @post.save
       flash[:notice] = '發布公告！'
-      redirect_to post_path(@post)       
+      redirect_to admin_root_path     
     else
       flash[:alert] = @post.errors.full_messages.to_sentence
-      redirect_to root_path
+      redirect_to admin_root_path
     end
   end
 
@@ -52,6 +49,6 @@ class Admin::PostsController < ApplicationController
       @post = Post.find(params[:id])
     end
     def post_params
-      params.require(:post).permit( :title, :description)
+      params.require(:post).permit(:title, :description)
     end
 end
