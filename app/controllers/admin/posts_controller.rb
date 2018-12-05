@@ -36,13 +36,15 @@ class Admin::PostsController < ApplicationController
       else
         flash[:alert] = @user.errors.full_messages.to_sentence
       end
-      redirect_to post_path(@post) 
+      redirect_to admin_post_path(@post)
   end
 
   def show
+    @posts = Post.order(created_at: :desc).page(params[:page]).per(20)
   end
 
   def edit
+    @posts = Post.order(created_at: :desc).page(params[:page]).per(20)
   end
 
   private

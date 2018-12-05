@@ -1,7 +1,7 @@
 <div class="container"> 
   <br>  
   <div class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 well">  
-      <%= form_for @post, url: admin_posts_path do |f| %>
+      <%= form_for @post, url: admin_post_path do |f| %>
         <div class="form-group">
           <%= f.label "標題：" %>
           <%= f.text_field :title , class: "form-control" %>
@@ -10,7 +10,7 @@
           <label>內容：</label>
           <%= f.text_area :description, :maxlength => 250, :cols => "10", :rows => "5", class: "form-control" %>
         </div>
-          <%= f.submit class: "btn btn-info pull-right form-group", value: "發佈公告" %>        
+          <%= f.submit class: "btn btn-info pull-right form-group", value: "修改公告" %>        
       <% end %>
   </div>
   <%= render partial: "shared/posts_table" %>
