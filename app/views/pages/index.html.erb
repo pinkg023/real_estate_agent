@@ -57,14 +57,18 @@
 							<div class="col-sm-12 col-md-3">
 								<div class="panel panel-default">
         					<div class="panel-body">   
-        						<div class="content">           
-											<h3 class="text-primary"><%= post.title %></h3>
+        						<div class="content">       
+        							<strong><%= post.created_at.strftime("%d %b. %Y %H:%M") %></strong>    
+											<h3 class="text-primary"><%= link_to post.title, post_path(post) %></h3>
 											<p class="card-text"><%= post.description.truncate(100) %></p>
 										</div>
 									</div>
 								</div>
 							</div>
 			      <% end %>
+			     <div class="button-group">
+			  		<%= link_to posts_path do%><button class="btn-lg btn-default board"><i class="fa fa-bullhorn"></i> 進入公布欄 </button><% end %>
+			  	</div>
 			</section>
 
 		<!-- Two -->
@@ -101,11 +105,11 @@
 						</div>
 						<div class="content">
 							<h3>鄭佳宜</h3>
-							<i class="fa fa-bookmark-o"> 臺灣大學農經系學、碩、博士</i>
-							<i class="fa fa-bookmark-o"> 中興、臺體育兼任助理教授</i>
-							<i class="fa fa-bookmark-o"> 高考三等農業行政三次及格</i>
-							<i class="fa fa-bookmark-o"> 高考二等農業行政筆試榜首榜眼</i>
-							<i class="fa fa-bookmark-o"> 前臺中市區公所農業建設課課員</i>
+							<i class="fa fa-tag"> 臺灣大學農經系學、碩、博士</i>
+							<i class="fa fa-tag"> 中興、臺體育兼任助理教授</i>
+							<i class="fa fa-tag"> 高考三等農業行政三次及格</i>
+							<i class="fa fa-tag"> 高考二等農業行政筆試榜首榜眼</i>
+							<i class="fa fa-tag"> 前臺中市區公所農業建設課課員</i>
 						</div>
 					</div>
 					<div class="flex-item box">

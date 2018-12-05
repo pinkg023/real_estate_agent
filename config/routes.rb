@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     root "posts#index"
   end
 
+  resources :posts, :only => [:index, :show]
+
   root "pages#index"
   get 'pages/index' => 'pages#index'
 
