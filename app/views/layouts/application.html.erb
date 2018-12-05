@@ -16,7 +16,7 @@
       <header id="header">
         <nav class="left">
           <a href="#menu"><span>Menu</span></a>
-          <% if current_user %><strong>Hi, <%= current_user.email %></strong><% end %>
+          <% if current_user %><strong><%= current_user.email %> 您好</strong><% end %>
         </nav>
         <a href="/pages/index.html" class="logo">福代書</a>
         <nav class="right">
