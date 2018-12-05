@@ -1,12 +1,18 @@
-     <table> 
+  <div class="container"> 
+  <br>  
+    <table> 
+      <tr><td><%= "標題" %></td><td><%= "內容" %></td></tr>
       <% @posts.each do |post| %>        
-            <tr>
-              <td><%= link_to post.title.truncate(20), admin_post_path(post) %>
+            <tr>              
+              <td><%= link_to post.title.truncate(20), admin_post_path(post) %></td>
               <td><%= post.description.truncate(100) %>
-                  <%= link_to "Delete", admin_post_path(post), method: :delete, class: "btn btn-info pull-right" %>
-              </td>
+                <div class="button-group pull-right">
+                  <%= link_to edit_admin_post_path(post) do %><button class="btn btn-info"><i class="fa fa-pencil-square-o"></i> 修改 </button><% end %>
+                  <%= link_to admin_post_path(post), method: :delete do%><button class="btn btn-light"><i class="fa fa-trash"></i> 刪除 </button><% end %>                  
+                </div>
               </td>
             </tr>
       <% end %>
     </table>
     <%= paginate @posts %>
+  </div>
