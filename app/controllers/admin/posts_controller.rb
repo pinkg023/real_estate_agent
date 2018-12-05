@@ -1,7 +1,7 @@
 class Admin::PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :authenticate_admin
-  before_action :set_post, :only => [:show, :edit, :update, :destroy]
+  before_action :set_post, :only => [:show, :edit, :update]
 
   def index
     @post = Post.new
@@ -19,12 +19,13 @@ class Admin::PostsController < ApplicationController
     end
   end
 
-  def destroy
+  def destroy  
+    set_post  
     @post.destroy
-    if @post.present?
-      flash[:alert] = @post.errors.full_messages.to_sentence
+    if Post.exists?(id: @post.id)
+      flash[:alert] = @post.errors.full_messages.to_sentence + @post.title
     else
-      flash[:alert] = "公告已刪除！" 
+      flash[:notice] = "公告已刪除！" 
     end
       redirect_to admin_root_path
   end
