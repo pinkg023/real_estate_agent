@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
   resources :posts, :only => [:index, :show]
 
+  get 'invitations', to: 'invitations#generate'
+  get 'invitations/:invite_token', to: 'invitations#check'
   root "pages#index"
   get 'pages/index' => 'pages#index'
 
