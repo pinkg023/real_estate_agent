@@ -9,11 +9,11 @@ class InvitationsController < ApplicationController
   end
 
   def check
-    Invitation.where.not(:created_at => Date.today.to_time..Date.tomorrow.to_time).destroy_all
+    Invitation.where.not(:created_at => 24.hours.ago..Time.zone.now).destroy_all
     if Invitation.exists?(invite_token: params[:invite_token])
       redirect_to invitations_path
     else
-      flash[:alert] = "很抱歉，此邀清無效，請重新索取。謝謝"
+      flash[:alert] = "很抱歉，此非有效邀請，請重新索取。謝謝"
       redirect_to root_path
     end
   end
