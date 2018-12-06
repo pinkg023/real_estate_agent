@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   get 'invitations', to: 'invitations#generate'
   get 'invitations/:invite_token', to: 'invitations#check'
+  post 'invitations/:invite_token/invited_registration', to: 'invitations#invited_registration'
   root "pages#index"
   get 'pages/index' => 'pages#index'
 
