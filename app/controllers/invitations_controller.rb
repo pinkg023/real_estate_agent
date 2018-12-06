@@ -9,7 +9,7 @@ class InvitationsController < ApplicationController
   end
 
   def check
-    Invitation.where.not(:created_at => 24.hours.ago..Time.zone.now).destroy_all
+    Invitation.where.not(:created_at => 20.seconds.ago..Time.zone.now).destroy_all
     if Invitation.exists?(invite_token: params[:invite_token])
       redirect_to invitations_path
     else
