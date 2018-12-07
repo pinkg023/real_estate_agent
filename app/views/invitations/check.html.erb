@@ -2,7 +2,7 @@
   <br>
   <h2>註冊邀請帳號</h2>
 
-  <%= form_for @user, :url => {:controller => "invitations", :action => "invited_registration"} do |f| %>
+  <%= form_for @reg do |f| %>
 
     <div class="field">
       <%= f.label :email %>
@@ -23,10 +23,8 @@
     </div>
     <br>
     <div class="field">
-      <%= f.fields_for :question do |question| %>
-        <label>首次諮詢內容簡述：</label>
-        <%= question.text_field :description %>
-      <% end %> 
+        <%= f.label "首次諮詢內容簡述：" %>
+        <%= f.text_field :description %>
     </div>
     <br>
     <div class="actions">
