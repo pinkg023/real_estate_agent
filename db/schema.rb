@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181207113040) do
+ActiveRecord::Schema.define(version: 20181209033445) do
 
   create_table "invitations", force: :cascade do |t|
     t.string "invite_token"
