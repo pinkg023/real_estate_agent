@@ -19,3 +19,5 @@
 //= require skel.min
 //= require util
 //= require main
+//= require popper
+//= require bootstrap
