@@ -2,6 +2,9 @@ class UsersController < ApplicationController
   before_action :set_user, :check_userself, :only => [:show, :edit, :coupon]
 
   def show
+    @secure_number = SecureRandom.hex(8)
+    Invitation.create!(invite_token: @secure_number)
+    @invite_link = "http://localhost:3000" + "/invitations/" + @secure_number
   end
 
   def update
