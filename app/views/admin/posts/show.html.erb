@@ -1,13 +1,11 @@
 <div class="container"> 
-    <ul class="nav nav-tabs">
-      <li class="nav-item">
-        <a class="nav-link active" href="/admin">公告管理</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/admin/users">會員管理</a>
-      </li>
-    </ul>
+  <br>
+  <%= render partial: "shared/post_ctl_tag" %>
   <br>  
-  <%= render partial: "shared/show_form" %>
+    <div class="col-12">  
+      <%= form_for @post, url: admin_post_path do |f| %>
+        <%= render partial: "shared/post_form", locals: {f: f}%>
+      <% end %>
+    </div>
   <%= render partial: "shared/posts_table" %>
 </div>

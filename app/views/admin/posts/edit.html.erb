@@ -1,16 +1,11 @@
 <div class="container"> 
+  <br>
+  <%= render partial: "shared/post_ctl_tag" %>
   <br>  
-  <div class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 well">  
+  <div class="col-12">
       <%= form_for @post, url: admin_post_path do |f| %>
-        <div class="form-group">
-          <%= f.label "標題：" %>
-          <%= f.text_field :title, :maxlength => 60, class: "form-control" %>
-        </div>
-        <div class="form-group">
-          <label>內容：</label>
-          <%= f.text_area :description, :maxlength => 800, :cols => "10", :rows => "5", class: "form-control" %>
-        </div>
-          <%= f.submit class: "btn btn-info pull-right form-group", value: "修改公告" %>        
+        <%= render partial: "shared/post_form", locals: {f: f}%>
+        <%= f.submit class: "btn btn-info pull-right form-group", value: "修改公告" %>        
       <% end %>
   </div>
   <%= render partial: "shared/posts_table" %>
