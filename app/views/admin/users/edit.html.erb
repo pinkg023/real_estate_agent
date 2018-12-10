@@ -1,7 +1,10 @@
 <br>
 <div class = "container">
+  <br>
+  <%= render partial: "shared/user_ctl_tag" %>
+  <br>
   <div class="col-md-4 well well-lg">
-      <%= form_for @user do |f| %>
+      <%= form_for @user, url: admin_user_path do |f| %>
         <div class="form-group">
           <%= f.label "姓名：" %>
           <%= f.text_field :name , class: "form-control" %>

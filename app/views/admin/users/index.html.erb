@@ -1,0 +1,23 @@
+  <div class="container">
+    <br>
+    <%= render partial: "shared/user_ctl_tag" %>
+    <br>
+    <table> 
+      <tr><td><%= '姓名' %></td><td><%= "Email" %></td><td><%= "註冊時間" %></td><td></td></tr>
+      <% @users.each do |user| %>        
+            <tr>
+              <td><%= link_to user.name, admin_user_path(user) %></td>
+              <td><%= user.email %></td>
+              <td><%= user.created_at.strftime("%d %b. %Y %H:%M") %></td>
+              <td>
+                  <div class="button-group">
+                    <%= link_to edit_admin_user_path(user) do %><button class="btn btn-info"><i class="fa fa-pencil-square-o"></i> 修改 </button><% end %>
+                    <%= link_to admin_user_path(user), method: :delete do%><button class="btn btn-light"><i class="fa fa-trash"></i> 刪除 </button><% end %>                  
+                  </div>
+                </div>
+              </td>
+            </tr>
+      <% end %>
+    </table>
+    <%= paginate @users %>
+  </div>

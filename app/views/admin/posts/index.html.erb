@@ -1,6 +1,15 @@
 <div class="container"> 
   <br>  
-  <div class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 well">  
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" href="/admin">公告管理</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/admin/users">會員管理</a>
+    </li>
+  </ul>
+
+  <div class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">  
       <%= form_for @post, url: admin_posts_path do |f| %>
         <div class="form-group">
           <%= f.label "標題：" %>
