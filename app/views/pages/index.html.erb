@@ -52,11 +52,12 @@
 			</section>
 		<!-- Three -->
 			<section id="three" class="container-fluid">
-				<h2 class="text-center">最新公告</h2>								
+				<h2 class="text-center">最新公告</h2>		
+						<div class="row">						
 						<% @posts.each do |post| %>
 							<div class="col-sm-12 col-md-3">
-								<div class="panel panel-default">
-        					<div class="panel-body">   
+								<div class="card">
+        					<div class="card-body">   
         						<div class="content">       
         							<strong><%= post.created_at.strftime("%d %b. %Y %H:%M") %></strong>    
 											<h3 class="text-primary"><%= link_to post.title, post_path(post) %></h3>
@@ -66,6 +67,7 @@
 								</div>
 							</div>
 			      <% end %>
+			    </div>
 			     <div class="button-group">
 			  		<%= link_to posts_path do%><button class="btn-lg btn-default board"><i class="fa fa-bullhorn"></i> 進入公布欄 </button><% end %>
 			  	</div>
