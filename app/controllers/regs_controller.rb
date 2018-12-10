@@ -4,7 +4,7 @@ class RegsController < ApplicationController
     @reg = Reg.new(reg_params)
 
     if @reg.save
-      redirect_to root_url, notice: 'Registration successful!'
+      redirect_to root_url, notice: '註冊完成!'
     else
       render :new
     end
@@ -12,7 +12,7 @@ class RegsController < ApplicationController
 
   private
     def reg_params
-      params.require(:reg).permit(:email, :password, :password_confirmation, :description)
+      params.require(:reg).permit(:email, :password, :password_confirmation, :description, :invite_token)
    end
 
 end

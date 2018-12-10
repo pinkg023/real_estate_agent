@@ -11,8 +11,8 @@ class InvitationsController < ApplicationController
   def check
     #Invitation.where.not(:created_at => 30.days.ago..Time.zone.now).destroy_all
     if User.exists?(invite_token: params[:invite_token])
-      @inviter = User.where(:invite_token => params[:invite_token])
-      @reg = Reg.new
+      #@inviter = User.where(:invite_token => params[:invite_token])
+      @reg = Reg.new(invite_token: params[:invite_token])
     else
       flash[:alert] = "很抱歉，此非有效邀請，請重新索取。謝謝"
       redirect_to root_path
@@ -20,7 +20,7 @@ class InvitationsController < ApplicationController
   end
 
   private
-    def invited_user_params
-      params.require(:user).permit(:email, :password, :password_confirmation,:role, :name, :tel, :cel, question_attributes: [:id, :user_id, :description])
-   end
+    #def invited_user_params
+    #  params.require(:user).permit(:email, :password, :password_confirmation,:role, :name, :tel, :cel, :description, :invited_token)
+   #end
 end

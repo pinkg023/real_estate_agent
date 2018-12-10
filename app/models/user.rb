@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :questions
-  has_many :invitations
+  has_many :invitations, dependent: :destroy
+  has_many :invited_users, through: :invitations
   
 end

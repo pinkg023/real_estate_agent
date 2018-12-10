@@ -13,7 +13,8 @@
 ActiveRecord::Schema.define(version: 20181209033445) do
 
   create_table "invitations", force: :cascade do |t|
-    t.string "invite_token"
+    t.integer "user_id"
+    t.integer "invited_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
