@@ -1,43 +1,47 @@
 <br>
 <div class = "container">
-  <div class="col-md-4 card">
+  <div class="row">
+    <div class="col-4 card p-1 m-1">
       <br>
-      <strong>姓名：</strong><%= @user.name %>
+      <strong>姓名：<%= @user.name %></strong>
       <br>
-      <strong>Email：</strong> <%= @user.email %>
+      <strong>Email：<%= @user.email %></strong> 
       <% if current_user.role == "admin" %> 
           <br>
-          <strong>使用者權限：</strong> <%= @user.role %>
+          <strong>使用者權限：<%= @user.role %></strong> 
       <% end %>
       <br>
-      <strong>電話：</strong> <%= @user.tel %>
+      <strong>電話：<%= @user.tel %></strong> 
       <br>     
-      <strong>手機：</strong> <%= @user.cel %>  
+      <strong>手機：<%= @user.cel %></strong>   
       <br>
+    </div>
+    <br>
+    <!-- Button trigger modal -->
+    <div class="col-2 p-1 m-1">
+      <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-thumbs-o-up"></i>顯示推薦連結</button>
+    </div>
 
-  </div>
-
-  <!-- Button trigger modal -->
-  <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter"><i class="icon-thumbs-up"></i>顯示推薦連結 </button>
-
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">個人推薦連結</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <%= @invite_link %>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">關閉</button>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">個人推薦連結</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <%= @invite_link %>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">關閉</button>
+          </div>
         </div>
       </div>
     </div>
   </div>
   
 </div>
+<br>
