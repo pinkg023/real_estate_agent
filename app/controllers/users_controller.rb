@@ -2,9 +2,13 @@ class UsersController < ApplicationController
   before_action :set_user, :check_userself, :only => [:show, :edit, :coupon]
 
   def show
-    @secure_number = SecureRandom.hex(8)
-    Invitation.create!(invite_token: @secure_number)
-    @invite_link = "http://localhost:3000" + "/invitations/" + @secure_number
+    if @user.invite_token == ""
+      @secure_number = SecureRandom.hex(8)
+      #Invitation.create!(invite_token: @secure_number)
+      @user.invite_token = @secure_number
+      @user.save
+    end
+    @invite_link = "http://localhost:3000" + "/invitations/" + @user.invite_token
   end
 
   def update
@@ -29,7 +33,7 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:email, :role, :name, :tel, :cel)
+      params.require(:user).permit(:email, :role, :name, :tel, :cel, :invite_token)
     end
 
     def check_userself

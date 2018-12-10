@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20181209033445) do
     t.string "tel", default: "", null: false
     t.string "cel", default: "", null: false
     t.string "email", default: "", null: false
+    t.string "invite_token", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
