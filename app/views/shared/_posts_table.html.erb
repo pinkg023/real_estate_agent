@@ -1,5 +1,7 @@
-    <table> 
-      <tr><td><%= '發佈時間' %></td><td><%= "標題" %></td><td><%= "內容" %></td><td></td></tr>
+    <table class="table col-12">
+      <thead class="thead-dark"> 
+        <tr><th style="width: 15%"><%= '發佈時間' %></th><th style="width: 15%"><%= "標題" %></th><th style="width: 35%"><%= "內容" %></th><th style="width: 25%"></th></tr>
+      <thead>
       <% @posts.each do |post| %>        
             <tr>
               <td><%= post.created_at.strftime("%d %b. %Y %H:%M") %></td>
@@ -8,7 +10,7 @@
               <td>
                   <div class="button-group">
                     <%= link_to edit_admin_post_path(post) do %><button class="btn btn-info"><i class="fa fa-pencil-square-o"></i> 修改 </button><% end %>
-                    <%= link_to admin_post_path(post), method: :delete do%><button class="btn btn-light"><i class="fa fa-trash"></i> 刪除 </button><% end %>                  
+                    <%= link_to admin_post_path(post), method: :delete do%><button class="btn btn-warning"><i class="fa fa-trash"></i> 刪除 </button><% end %>                  
                   </div>
                 </div>
               </td>
