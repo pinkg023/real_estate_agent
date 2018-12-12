@@ -4,6 +4,8 @@ class Admin::UsersController < ApplicationController
 
   def show
     set_user
+    @invited_users = 
+    @invited_users = Post.joins(:taggings).where(taggings: {tag_id: 17})
   end
 
   def edit

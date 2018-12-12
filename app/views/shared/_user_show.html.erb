@@ -17,6 +17,13 @@
       <br>
     </div>
     <br>
+    <div class="col-6 p-1 m-1">
+        <div class="col-4 card p-1 m-1">
+          <% @invited_users.each do |user| %> 
+            <%= user.email %>
+          <% end %>
+        </div>
+    </div>
     <!-- Button trigger modal -->
     <div class="col-2 p-1 m-1">
       <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">顯示推薦連結<i class="fa fa-thumbs-o-up fa-lg"></i></button>

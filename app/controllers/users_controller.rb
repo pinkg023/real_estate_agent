@@ -9,6 +9,7 @@ class UsersController < ApplicationController
       @user.save
     end
     @invite_link = "http://localhost:3000" + "/invitations/" + @user.invite_token
+    @invited_users = User.joins("INNER JOIN invitations ON invitations.invited_id = users.id").where("user_id = #{current_user.id}")
   end
 
   def update
