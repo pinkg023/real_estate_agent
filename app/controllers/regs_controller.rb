@@ -4,6 +4,7 @@ class RegsController < ApplicationController
     @reg = Reg.new(reg_params)
 
     if @reg.save
+      ContactMailer.say_hello_to(params[:email]).deliver_now
       redirect_to root_url, notice: '註冊完成!'
     else
       render :new

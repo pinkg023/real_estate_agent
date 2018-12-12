@@ -1,29 +1,44 @@
-<br>
-<div class = "container">
+<div class="container">
   <div class="row">
-    <div class="col-4 card p-1 m-1">
+    <div class="col-sm-12 col-md-6 col-lg-6">
       <br>
-      <strong>姓名：<%= @user.name %></strong>
-      <br>
-      <strong>Email：<%= @user.email %></strong> 
-      <% if current_user.role == "admin" %> 
+      <div class="card">
+        <div class="card-header text-center">
+          <%= "個人資料" %>
+        </div>
+        <div class="card-body">
+          <strong>姓名：<%= @user.name %></strong>
           <br>
-          <strong>使用者權限：<%= @user.role %></strong> 
-      <% end %>
-      <br>
-      <strong>電話：<%= @user.tel %></strong> 
-      <br>     
-      <strong>手機：<%= @user.cel %></strong>   
-      <br>
+          <strong>Email：<%= @user.email %></strong> 
+          <% if current_user.role == "admin" %>
+              <br>
+              <strong>使用者權限：<%= @user.role %></strong> 
+          <% end %>
+          <br>
+          <strong>電話：<%= @user.tel %></strong> 
+          <br>     
+          <strong>手機：<%= @user.cel %></strong>   
+          <br>
+        </div>
+      </div>
     </div>
     <br>
-    <div class="col-6 p-1 m-1">
-        <div class="col-4 card p-1 m-1">
-          <% @invited_users.each do |user| %> 
-            <%= user.email %>
-          <% end %>
+      <div class="col-sm-12 col-md-6 col-lg-6">
+        <br>
+        <div class="card">
+          <div class="card-header text-center">
+            <%= "推薦好友" %>
+          </div>
+            <div class="card-body">
+              <% @invited_users.each do |user| %> 
+                <strong><%= user.email %></strong><br>
+              <% end %>
+            </div>
         </div>
+      </div>
     </div>
+
+
     <!-- Button trigger modal -->
     <div class="col-2 p-1 m-1">
       <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">顯示推薦連結<i class="fa fa-thumbs-o-up fa-lg"></i></button>
@@ -49,6 +64,5 @@
       </div>
     </div>
   </div>
-  
 </div>
 <br>
