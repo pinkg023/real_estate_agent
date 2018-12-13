@@ -9,16 +9,16 @@
             <div class="card-body">
               <div class="row">
                 <!-- Button trigger modal -->
-                <div class="col-2 p-1 m-1 mx-auto">
+                <div class="col-sm-5 col-md-3 col-lg-2 p-1 mx-auto">
                   <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter1"><i class="fa fa-thumbs-o-up fa-lg"></i>顯示推薦連結</button>
                 </div>
-                <div class="col-2 p-1 m-1 mx-auto">
+                <div class="col-sm-5 col-md-3 col-lg-2 p-1 mx-auto">
                   <button class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter2"><i class="fa fa-users fa-lg"></i>好友邀請列表</button>
                 </div>                
-                <div class="col-2 p-1 m-1 mx-auto">
+                <div class="col-sm-5 col-md-3 col-lg-2 p-1 mx-auto">
                   <%= link_to edit_user_path(current_user) do %> <button class="btn btn-success"><i class="fa fa-pencil-square-o fa-lg"></i>修改會員資料</button><% end %>
                 </div>
-                <div class="col-2 p-1 m-1 mx-auto">
+                <div class="col-sm-5 col-md-3 col-lg-2 p-1 mx-auto">
                   <%= link_to edit_user_registration_path(current_user) do %> <button class="btn btn-dark"><i class="fa fa-cog fa-lg"></i>修改密碼</button><% end %>
                 </div>
               </div>
@@ -51,16 +51,20 @@
       </div>
     </div>
     <br>
-      <div class="col-sm-12 col-md-6 col-lg-4">
+      <div class="col-sm-12 col-md-8 col-lg-8">
         <br>
         <div class="card">
           <div class="card-header text-center">
             <%= "推薦好友" %>
           </div>
             <div class="card-body">
-              <% @invited_users.each do |user| %> 
-                <strong><%= user.email %></strong><br>
-              <% end %>
+              <div class="row">
+                <% @invited_users.each do |user| %> 
+                  <div class="col-6">
+                    <strong><%= user.email %></strong><br>
+                  </div>
+                <% end %>
+              </div>
             </div>
         </div>
       </div>
