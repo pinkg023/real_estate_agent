@@ -9,6 +9,18 @@
       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
     </div>
     <br>
+    <div class="form-group">
+      <%= f.label "姓名：" %>
+      <%= f.text_field :name , class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <label>手機：</label>
+      <%= f.phone_field :cel, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <label>電話：</label>
+      <%= f.telephone_field :tel, class: "form-control" %>
+    </div>      
     <div class="field">
       <%= f.label "密碼" %>
       <%= f.password_field :password, autocomplete: "new-password" %>

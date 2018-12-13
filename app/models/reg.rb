@@ -1,7 +1,7 @@
 class Reg < ApplicationRecord
   include ActiveModel::Model
 
-  attr_accessor :email, :password, :password_confirmation, :description, :invite_token
+  attr_accessor :email, :name, :tel, :cel, :password, :password_confirmation, :description, :invite_token
 
 =begin
   def save
@@ -25,4 +25,5 @@ class Reg < ApplicationRecord
     false
   end
 =end
+
 end

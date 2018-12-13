@@ -3,7 +3,7 @@ class RegsController < ApplicationController
   def create
     @reg = Reg.new(reg_params)
 
-    @user = User.new(email: reg_params[:email], password: reg_params[:password], password_confirmation: reg_params[:password_confirmation])
+    @user = User.new(email: reg_params[:email], tel: reg_params[:tel], cel: reg_params[:cel], password: reg_params[:password], password_confirmation: reg_params[:password_confirmation])
       if @user.save
         @user.questions.create!(description: reg_params[:description])
         inviter = User.find_by(invite_token: reg_params[:invite_token])
@@ -28,7 +28,7 @@ class RegsController < ApplicationController
 
   private
     def reg_params
-      params.require(:reg).permit(:email, :password, :password_confirmation, :description, :invite_token)
+      params.require(:reg).permit(:email, :tel, :cel, :password, :password_confirmation, :description, :invite_token)
    end
 
 end
