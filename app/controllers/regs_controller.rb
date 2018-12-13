@@ -5,6 +5,7 @@ class RegsController < ApplicationController
 
     if @reg.save
       ContactMailer.say_hello_to(params[:email]).deliver_now
+      sign_in( User.last , scope: :user)
       redirect_to root_url, notice: '註冊完成!'
     else
       render :new
