@@ -1,20 +1,30 @@
 <br>
 <div class = "container">
-  <div class="col-md-4 well well-lg">
-      <%= form_for @user do |f| %>
-        <div class="form-group">
-          <%= f.label "姓名：" %>
-          <%= f.text_field :name , class: "form-control" %>
-        </div>
-        <div class="form-group">
-          <label>手機：</label>
-          <%= f.phone_field :cel, class: "form-control" %>
-        </div>
-        <div class="form-group">
-          <label>電話：</label>
-          <%= f.telephone_field :tel, class: "form-control" %>
-        </div>      
-        <%= f.submit "確認" %>
-      <% end %>
-  </div>
+ <br>
+  <h2>修改用戶資料</h2>
+
+  <%= form_for @user do |f| %>
+
+    <div class="field">
+      <%= f.label :email %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+    <br>
+    <div class="form-group">
+      <%= f.label "姓名：" %>
+      <%= f.text_field :name , class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <label>手機：</label>
+      <%= f.phone_field :cel, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <label>電話：</label>
+      <%= f.telephone_field :tel, class: "form-control" %>
+    </div>      
+    <br>
+    <div class="actions">
+      <%= f.submit "確定修改" %>
+    </div>
+  <% end %>
 </div>
