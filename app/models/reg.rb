@@ -3,7 +3,7 @@ class Reg < ApplicationRecord
 
   attr_accessor :email, :password, :password_confirmation, :description, :invite_token
 
-
+=begin
   def save
     return false if invalid?
 
@@ -24,5 +24,5 @@ class Reg < ApplicationRecord
 
     false
   end
-
+=end
 end
