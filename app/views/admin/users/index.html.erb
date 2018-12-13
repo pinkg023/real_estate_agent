@@ -5,9 +5,9 @@
     <table> 
       <tr><td><%= '姓名' %></td><td><%= "Email" %></td><td><%= "註冊時間" %></td><td></td></tr>
       <% @users.each do |user| %>        
-            <tr>
-              <td><%= link_to user.name, admin_user_path(user) %></td>
-              <td><%= user.email %></td>
+            <tr>          
+              <td><%= user.name %></td>
+              <td><%= link_to user.email, admin_user_path(user) %></td>
               <td><%= user.created_at.strftime("%d %b. %Y %H:%M") %></td>
               <td>
                   <div class="button-group">
