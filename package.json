@@ -1,7 +1,6 @@
 {
   "name": "real_estate_agent",
   "engines": {
-    "node": "8.11.3"
   },
   "private": true,
   "dependencies": {
