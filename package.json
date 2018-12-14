@@ -1,13 +1,12 @@
 {
   "name": "real_estate_agent",
+  "engines": {
+    "node": "8.11.3"
+  },
   "private": true,
   "dependencies": {
-    "@rails/webpacker": "https://github.com/rails/webpacker",
-  "engines": {
-    "node": "10.14.2"
+    "@rails/webpacker": "https://github.com/rails/webpacker"
   },
-  "scripts": {
-  "start": "node server.js",
   "devDependencies": {
     "webpack-dev-server": "^3.1.10"
   }
