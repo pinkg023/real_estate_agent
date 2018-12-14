@@ -4,5 +4,6 @@
   "dependencies": {}
   "engines": {
     "node": "8.11.3"
+    "yarn": "1.12.3"
   }
 }
