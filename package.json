@@ -1,6 +1,7 @@
 {
   "name": "real_estate_agent",
   "engines": {
+    "yarn": ">= 1.12.3"
   },
   "private": true,
   "dependencies": {
