@@ -13,7 +13,7 @@ gem 'font-awesome-rails'
 gem 'jquery-rails'
 gem 'kaminari'
 gem 'carrierwave', '~> 1.2', '>= 1.2.3'
-gem 'webpacker', '>= 4.0.x'
+# gem 'webpacker', '>= 4.0.x'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.6'
 # Use Puma as the app server
