@@ -18,7 +18,7 @@
           <a href="#menu"><span>Menu</span></a>
           <% if current_user %><strong><%= current_user.email %> 您好</strong><% end %>
         </nav>
-        <a href="/pages/index.html" class="logo">福代書</a>
+        <a href="/pages/index.html" data-turbolinks="false" class="logo">福代書</a>
         <nav class="right">
             <% if current_user %>
               <% if current_user.role == "admin" %> 
@@ -44,6 +44,7 @@
           <li><a href="#" class="button fit">Login</a></li>
         </ul>
       </nav>
+
     <div class="container">
       <% if flash[:notice] %>
           <br>
