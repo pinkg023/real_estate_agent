@@ -16,9 +16,9 @@
       <header id="header">
         <nav class="left">
           <a href="#menu"><span>Menu</span></a>
-          <% if current_user %><strong><%= current_user.email %> 您好</strong><% end %>
+          <% if current_user %><strong class="alt"><%= current_user.email %> 您好</strong><% end %>
         </nav>
-        <a href="/pages/index.html" class="logo">福代書</a>
+        <a href="/pages/index.html" data-turbolinks="false" class="logo">福代書</a>
         <nav class="right">
             <% if current_user %>
               <% if current_user.role == "admin" %> 
@@ -36,14 +36,15 @@
     <!-- Menu -->
       <nav id="menu">
         <ul class="links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="generic.html">Generic</a></li>
+          <li><a href="index.html">首頁</a></li>
+          <li><a href="/users/:id">會員中心</a></li>
           <li><a href="elements.html">Elements</a></li>
         </ul>
         <ul class="actions vertical">
-          <li><a href="#" class="button fit">Login</a></li>
+          <li><a href="/users/sign_in" class="button fit">Login</a></li>
         </ul>
       </nav>
+
     <div class="container">
       <% if flash[:notice] %>
           <br>
