@@ -13,6 +13,7 @@ gem 'font-awesome-rails'
 gem 'jquery-rails'
 gem 'kaminari'
 gem 'carrierwave', '~> 1.2', '>= 1.2.3'
+gem 'sitemap_generator'
 #gem 'webpacker', '>= 4.0.x'
 gem "rails-i18n"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
