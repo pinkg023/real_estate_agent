@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>福代書地政士事務所</title>
+    <meta name="google-site-verification" content="SmpRYp1XTm5HUKcDSfSQ4O_XPkL_536ZNqKSwKRgh0A" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <%= csrf_meta_tags %>
@@ -18,7 +19,7 @@
           <a href="#menu"><span>Menu</span></a>
           <% if current_user %><strong class="alt"><%= current_user.email %> 您好</strong><% end %>
         </nav>
-        <a href="/pages/index.html" data-turbolinks="false" class="logo">福代書</a>
+        <a href="/pages/index.html" class="logo">福代書</a>
         <nav class="right">
             <% if current_user %>
               <% if current_user.role == "admin" %> 

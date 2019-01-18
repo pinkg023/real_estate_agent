@@ -77,7 +77,6 @@ RSpec.feature "page_function", js: true do
       find(:css, 'i.fa.fa-trash', match: :first).click
       expect(page).not_to have_text('this is Huei"s first post')
 
-      binding.pry
 
 
     end
