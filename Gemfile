@@ -17,7 +17,8 @@ gem 'sitemap_generator'
 #gem 'webpacker', '>= 4.0.x'
 gem "rails-i18n"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.6'
+gem 'rails', '~> 5.2.1'
+gem "bootsnap"
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
