@@ -5,6 +5,14 @@
   <div class="col-12">
       <%= form_for @post, url: admin_posts_path do |f| %>
         <%= render partial: "shared/post_form", locals: {f: f}%>
+        <div class="field">
+            <%= f.label :images %>
+            <%= f.file_field :images, multiple: true %>
+        </div>
+        <div class="field">
+            <%= f.label :documents %>
+            <%= f.file_field :documents, multiple: true %>
+        </div>        
         <%= f.submit class: "btn btn-info pull-right form-group", value: "新增公告" %>
       <% end %>
   </div>
