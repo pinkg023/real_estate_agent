@@ -15,6 +15,17 @@ class Admin::UsersController < ApplicationController
     @users = User.order(created_at: :desc).page(params[:page]).per(20)
   end
 
+  def destroy  
+    set_user  
+    @user.destroy
+    if User.exists?(id: @user.id)
+      flash[:alert] = @user.errors.full_messages.to_sentence + @user.title
+    else
+      flash[:notice] = "用戶已刪除！" 
+    end
+      redirect_to admin_root_path
+  end
+
   def update
     set_user
       if @user.update(user_params)
