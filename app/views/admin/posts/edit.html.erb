@@ -1,11 +1,14 @@
 <div class="container"> 
   <br>
   <%= render partial: "shared/post_ctl_tag" %>
-  <br>  
+  <br>    
   <div class="col-12">
       <%= form_for @post, url: admin_post_path do |f| %>
-        <%= render partial: "shared/post_form", locals: {f: f}%>
-        <%= f.submit class: "btn btn-info pull-right form-group", value: "修改公告" %>        
+        <%= render partial: "shared/post_form", locals: {f: f}%>       
+        <%= render partial: "shared/post_file", locals: {f: f}%>
+        <br>
+        <%= link_to clearfile_admin_post_path(@post) do%><button class="btn btn-info"><i class="fa fa-times"></i> 清除所有文件 </button><% end %> 
+        <%= f.submit class: "btn btn-info pull-right form-group", value: "上傳檔案/修改公告" %>        
       <% end %>
   </div>
   <%= render partial: "shared/posts_table" %>

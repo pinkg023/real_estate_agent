@@ -1,7 +1,7 @@
 class Admin::PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :authenticate_admin
-  before_action :set_post, :only => [:show, :edit, :update]
+  before_action :set_post, :only => [:show, :edit, :update, :clearfile]
 
   def index
     @post = Post.new
@@ -12,7 +12,7 @@ class Admin::PostsController < ApplicationController
     @post = Post.new(post_params)
     if @post.save
       flash[:notice] = '發布公告！'
-      redirect_to admin_root_path     
+      redirect_to edit_admin_post_path(@post)   
     else
       flash[:alert] = @post.errors.full_messages.to_sentence
       redirect_to admin_root_path
@@ -36,7 +36,7 @@ class Admin::PostsController < ApplicationController
       else
         flash[:alert] = @user.errors.full_messages.to_sentence
       end
-      redirect_to admin_post_path(@post)
+      redirect_to edit_admin_post_path(@post)
   end
 
   def show
@@ -45,6 +45,12 @@ class Admin::PostsController < ApplicationController
 
   def edit
     @posts = Post.order(created_at: :desc).page(params[:page]).per(20)
+  end
+
+  def clearfile
+    @post.images.purge
+    @post.documents.purge
+    redirect_to edit_admin_post_path(@post)
   end
 
   private
