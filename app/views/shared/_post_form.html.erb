@@ -6,3 +6,16 @@
           <label>內容：</label>
           <%= f.text_area :description, :maxlength => 800, :cols => "10", :rows => "5", class: "form-control" %>
         </div>
+        <% if @post.images.attached? %>
+          <% @post.images.each do |image| %>
+            <%= image_tag(image, class: "img-responsive col-4" ) %>
+          <% end %>
+        <% end %>
+        <% if @post.documents.attached? %>
+          <p> 
+          <strong>檔案下載：</strong>
+          <% @post.documents.each_with_index do |doc, i| %>
+            <%= link_to( doc.filename , rails_blob_path(doc, disposition: "attachment")) %>
+          <% end %>
+          </p>
+        <% end %>

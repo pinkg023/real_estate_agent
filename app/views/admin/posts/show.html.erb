@@ -4,23 +4,7 @@
   <br>  
     <div class="col-12">  
       <%= form_for @post, url: admin_post_path do |f| %>
-        <%= render partial: "shared/post_form", locals: {f: f}%>
-        <% if @post.images.attached? %>
-          <p>testtest</p>
-          <% @post.images.each do |image| %>
-            <%= image_tag(image) %>
-          <% end %>
-        <% end %>
-        <% if @post.documents.attached? %>
-          <p> 
-          <h2>Download Documents</h2>
-          <% @post.documents.each_with_index do |doc, i| %>
-            <p> 
-            <%= link_to("doc##{i}", rails_blob_path(doc, disposition: "attachment")) %>
-            </p>
-          <% end %>
-          </p>
-        <% end %>
+        <%= render partial: "shared/post_form", locals: {f: f}%>        
       <% end %>
     </div>
   <%= render partial: "shared/posts_table" %>
